@@ -1,0 +1,30 @@
+{
+  "steam": {
+    "appId": 2106670,
+    "gameDistDepots": [
+      {
+        "depotId": 2106671,
+        "distributionName": "Windows",
+        "isDefault": true
+      }
+    ]
+  },
+  "processSettings": {
+    "excludeAssemblies": [
+      "Mono*.dll",
+      "netstandard.dll",
+      "System*.dll",
+      "mscorlib.dll"
+    ],
+    "assembliesToPublicise": [
+      "Assembly-CSharp.dll",
+      "Assembly-CSharp-firstpass.dll"
+    ],
+    "isIL2Cpp": true
+  },
+  "nuget": {
+    "name": "Gatekeeper.GameLibs.Steam",
+    "description": "Stripped and publicized game libraries for modding Gatekeeper."
+  },
+  "gameVersions": []
+}
