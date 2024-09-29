@@ -38,10 +38,11 @@ jobs:
         uses: Lordfirespeed/setup-steamcmd@v2
       
       - name: Authenticate SteamCMD
-        uses: Lordfirespeed/auth-steamcmd@v1
-        with:
-          steam_config_vdf: ${{ secrets.steam_config_vdf }}
-          steam_username: ${{ secrets.steam_username }}
+        run: steamcmd +login anonymous +quit
+      #  uses: Lordfirespeed/auth-steamcmd@v1
+      #  with:
+      #    steam_config_vdf: ${{ secrets.steam_config_vdf }}
+      #    steam_username: ${{ secrets.steam_username }}
           
       - name: Configure Git
         run: |
