@@ -45,11 +45,10 @@ jobs:
         uses: Lordfirespeed/setup-steamcmd@v2
       
       - name: Authenticate SteamCMD
-        run: steamcmd +login anonymous +quit
-      #  uses: Lordfirespeed/auth-steamcmd@v1
-      #  with:
-      #    steam_config_vdf: ${{ secrets.steam_config_vdf }}
-      #    steam_username: ${{ secrets.steam_username }}
+        uses: Lordfirespeed/auth-steamcmd@v1
+        with:
+          steam_config_vdf: ${{ secrets.steam_config_vdf }}
+          steam_username: ${{ secrets.steam_username }}
           
       - name: Download BepInEx
         run: curl https://github.com/BepInEx/BepInEx/releases/download/v6.0.0-pre.2/BepInEx-Unity.IL2CPP-linux-x64-6.0.0-pre.2.zip .
