@@ -596,8 +596,15 @@ public sealed class ProcessAssembliesTask : AsyncFrostingTaskBase<BuildContext>
         throw new ArgumentException("Unsupported distribution platform - couldn't find executable/app bundle.");
     }
 
-    private DirectoryPath ManagedDirectory(BuildContext context, int depotId) =>
-        DataDirectory(context, depotId).Combine("Managed");
+    private DirectoryPath ManagedDirectory(BuildContext context, int depotId)
+    {
+        if (context.GameMetadata.ProcessSettings.IsIl2Cpp)
+        {
+            return DataDirectory(context, depotId).Combine("BepInEx").Combine("interop");
+        }
+        return DataDirectory(context, depotId).Combine("Managed");
+    }
+        
 
     private DirectoryPath DepotTargetNupkgRefsDirectory(BuildContext context, SteamGameDistributionDepot depot, NuGetFramework framework)
         => context.GameDirectory
@@ -764,7 +771,7 @@ public sealed class MakePackagesTask : AsyncFrostingTaskBase<BuildContext>
             )
         };
         
-        metadata.SetProjectUrl("https://github.com/Lordfirespeed/NuGet-GameLib-Dehumidifier");
+        metadata.SetProjectUrl("https://github.com/Robocraft999/NuGet-GameLib-Dehumidifier");
 
         ManifestFile[] files = [
             new()
@@ -800,6 +807,8 @@ public sealed class PushNuGetTask : FrostingTaskBase<BuildContext>
     public override void Run(BuildContext context)
     {
         var nugetPath = context.GameDirectory.Combine("nupkgs");
+        Console.WriteLine(nugetPath);
+        return;
         var settings = new DotNetNuGetPushSettings
         {
             Source = "https://api.nuget.org/v3/index.json",
