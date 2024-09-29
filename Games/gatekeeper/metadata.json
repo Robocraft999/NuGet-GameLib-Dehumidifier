@@ -26,5 +26,23 @@
     "name": "Gatekeeper.GameLibs.Steam",
     "description": "Stripped and publicized game libraries for modding Gatekeeper."
   },
-  "gameVersions": []
+  "gameVersions": [
+    {
+      "buildId": 14615434,
+      "timeUpdated": 1717606530,
+      "gameVersion": "",
+      "depots": [
+        {
+          "depotId": 2106671,
+          "manifestId": 7437295716463301369
+        }
+      ],
+      "frameworkTargets": [
+        {
+          "tfm": "netstandard2.0",
+          "dependencies": []
+        }
+      ]
+    }
+  ]
 }
