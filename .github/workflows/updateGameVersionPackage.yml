@@ -57,7 +57,7 @@ jobs:
         run: curl -o bepinex.zip https://github.com/BepInEx/BepInEx/releases/download/v6.0.0-pre.2/BepInEx-Unity.IL2CPP-linux-x64-6.0.0-pre.2.zip
       
       - name: Unzip BepInEx
-        run: unzip BepInEx-Unity.IL2CPP-linux-x64-6.0.0-pre.2.zip -d .
+        run: unzip bepinex.zip -d .
         
       - name: Echo folder
         run: echo $(ls)
