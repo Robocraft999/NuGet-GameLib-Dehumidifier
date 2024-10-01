@@ -49,9 +49,12 @@ jobs:
         with:
           steam_config_vdf: ${{ secrets.steam_config_vdf }}
           steam_username: ${{ secrets.steam_username }}
+      
+      - name: Echo folder before
+        run: echo $(ls)
           
       - name: Download BepInEx
-        run: curl https://github.com/BepInEx/BepInEx/releases/download/v6.0.0-pre.2/BepInEx-Unity.IL2CPP-linux-x64-6.0.0-pre.2.zip .
+        run: curl -o bepinex.zip https://github.com/BepInEx/BepInEx/releases/download/v6.0.0-pre.2/BepInEx-Unity.IL2CPP-linux-x64-6.0.0-pre.2.zip
       
       - name: Unzip BepInEx
         run: unzip BepInEx-Unity.IL2CPP-linux-x64-6.0.0-pre.2.zip -d .
